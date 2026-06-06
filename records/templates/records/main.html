@@ -50,7 +50,7 @@
         <div class="card my-5">
             <div class="card-header fs-4 text-center py-3">Создание записи</div>
             <div class="card-body">
-                {% include 'partial/record_form_view.html' with form=create_form %}
+                {% include 'partial/record_form_view.html' with form=create_form form_action="/create/" %}
             </div>
             <div class="card-footer text-end py-3">
                 <button type="submit" form="record-form" class="btn btn-sm btn-primary">Сохранить</button>
