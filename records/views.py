@@ -2,10 +2,11 @@ from django.shortcuts import render, redirect,get_object_or_404
 
 from records.models import Record
 from records.forms import RecordForm
+from records.constants import STATUS_ACTIVE
 
 
 def records(request):
-    records = Record.objects.all().order_by('-created_at')
+    records = Record.objects.filter(status=STATUS_ACTIVE).order_by('-created_at')
     context = {'records': records}
     return render(request, "records/main.html", context)
 
