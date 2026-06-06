@@ -16,6 +16,7 @@ def records(request):
 
     context = {'records': records,
                'search': search,
+               'create_form': RecordForm(),
                }
     return render(request, "records/main.html", context)
 

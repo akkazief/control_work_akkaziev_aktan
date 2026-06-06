@@ -7,7 +7,7 @@
     <form method="GET" class="d-flex gap-2">
         <input type="search" name="query" value="{{ request.GET.query }}"
                class="form-control" placeholder="Поиск по автору..." aria-label="Search">
-    <button type="submit" class="btn btn-primary">Найти</button>
+    <button type="submit" class="btn btn-dark">Найти</button>
 </form>
 {% endblock %}
 
@@ -40,9 +40,20 @@
                 </div>
             </div>
         </div>
-    {% empty %}
-        <p class="text-muted">Нет записей</p>
-    {% endfor %}
-</div>
-
+        {% empty %}
+            <p class="text-muted">Нет записей</p>
+        {% endfor %}
+    </div>
 {% endblock %}
+
+{% block additionals %}
+        <div class="card my-5">
+            <div class="card-header fs-4 text-center py-3">Создание записи</div>
+            <div class="card-body">
+                {% include 'partial/record_form_view.html' with form=create_form %}
+            </div>
+            <div class="card-footer text-end py-3">
+                <button type="submit" form="record-form" class="btn btn-sm btn-primary">Сохранить</button>
+            </div>
+        </div>
+    {% endblock %}

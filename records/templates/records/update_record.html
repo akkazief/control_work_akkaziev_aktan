@@ -4,7 +4,7 @@
     <div class="card my-5">
         <div class="card-header fs-4 text-center py-3">Редактирование записи</div>
         <div class="card-body">
-            {% include 'partial/record_form.html' with action=action %}
+            {% include 'partial/record_form_view.html' with action=action %}
         </div>
         <div class="card-footer text-end py-3">
             <a href="{% url 'main' %}" class="btn btn-sm btn-secondary me-2">Отмена</a>

@@ -1,12 +1,14 @@
-<form action="" method="POST" id="record-form">
+<form action="{% url 'create' %}" method="POST" id="record-form">
     {% csrf_token %}
-
+    <div></div>
     {% for error in form.non_field_errors %}
         <p class="text-danger">{{ error }}</p>
     {% endfor %}
 
     {% for field in form %}
-        <p><label for="{{ field.id_for_label }}">{{ field.label }}</label></p>
+        <p>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        </p>
         {% for error in field.errors %}
             <p class="text-danger">{{ error }}</p>
         {% endfor %}
