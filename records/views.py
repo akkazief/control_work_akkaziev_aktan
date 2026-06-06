@@ -36,4 +36,4 @@ def delete_record(request, pk):
     if request.method == 'POST':
         record.delete()
         return redirect('main')
-    return render(request, 'records/delete_record.html', {'record': record})
+    return render(request, 'records/delete_record_modal.html', {'record': record})
