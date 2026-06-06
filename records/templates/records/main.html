@@ -2,7 +2,17 @@
 {% block nav %}
     <a class="nav-link" href="{% url 'create' %}">Добавить запись</a>
 {% endblock %}
+
+ {% block search %}
+    <form method="GET" class="d-flex gap-2">
+        <input type="search" name="query" value="{{ request.GET.query }}"
+               class="form-control" placeholder="Поиск по автору..." aria-label="Search">
+    <button type="submit" class="btn btn-primary">Найти</button>
+</form>
+{% endblock %}
+
 {% block content %}
+
     <div class="page-header d-flex justify-content-between align-items-center my-4 p-3">
         <h1>Записи</h1>
     </div>

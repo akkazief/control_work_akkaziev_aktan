@@ -10,23 +10,27 @@
 
     <title>Guest_book</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark mb-4">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse align-items-center" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="{% url 'main' %}">Главная</a>
                     {% block nav %}
                     {% endblock %}
                 </div>
+                <div class="navbar-nav ms-auto">
+                    {% block search %}
+                    {% endblock %}
+                </div>
             </div>
         </div>
     </nav>
-    <div class="container">
+    <div class="container flex-grow-1">
         {% block content %}
         {% endblock %}
     </div>

@@ -1,13 +1,22 @@
 from django.shortcuts import render, redirect,get_object_or_404
 
+from records.forms.search_form import SearchForm
 from records.models import Record
-from records.forms import RecordForm
+from records.forms.record_form import RecordForm
 from records.constants import STATUS_ACTIVE
 
 
 def records(request):
+    search = SearchForm(request.GET)
     records = Record.objects.filter(status=STATUS_ACTIVE).order_by('-created_at')
-    context = {'records': records}
+    if search.is_valid():
+        query = search.cleaned_data.get('query')
+        if query:
+            records = records.filter(name__icontains=query)
+
+    context = {'records': records,
+               'search': search,
+               }
     return render(request, "records/main.html", context)
 
 def create_record(request):

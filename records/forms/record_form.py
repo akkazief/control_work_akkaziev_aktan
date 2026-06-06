@@ -1,5 +1,4 @@
 from django.forms import ModelForm, widgets
-from django.core.validators import EmailValidator
 from records.models import Record
 
 
