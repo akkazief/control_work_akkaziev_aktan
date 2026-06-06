@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="card my-5">
+        <div class="card-header fs-4 text-center py-3">Удаление записи</div>
+        <div class="card-body">
+            <p>Для удаления записи "{{ record.name }}" введите почту автора:</p>
+            {% if error %}
+                <p class="text-danger">{{ error }}</p>
+            {% endif %}
+            <form method="POST" id="delete-form">
+                {% csrf_token %}
+                <input type="email" name="confirm_email" class="form-control" placeholder="Email">
+            </form>
+        </div>
+        <div class="card-footer text-end py-3">
+            <a href="{% url 'main' %}" class="btn btn-sm btn-secondary me-2">Отмена</a>
+            <button type="submit" form="delete-form" class="btn btn-sm btn-danger">Удалить</button>
+        </div>
+    </div>
+{% endblock %}

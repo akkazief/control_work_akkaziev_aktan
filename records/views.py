@@ -34,6 +34,13 @@ def update_record(request, pk):
 def delete_record(request, pk):
     record = get_object_or_404(Record, pk=pk)
     if request.method == 'POST':
-        record.delete()
-        return redirect('main')
-    return render(request, 'records/delete_record_modal.html', {'record': record})
+        confirm_email = request.POST.get('confirm_email')
+        if confirm_email == record.email:
+            record.delete()
+            return redirect('main')
+        else:
+            return render(request, 'records/delete_record.html', {
+                'record': record,
+                'error': 'Неверная почта'
+            })
+    return render(request, 'records/delete_record.html', {'record': record})

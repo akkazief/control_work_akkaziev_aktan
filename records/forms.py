@@ -10,9 +10,3 @@ class RecordForm(ModelForm):
         widgets = {
             "text": widgets.Textarea(attrs={"cols": "40", "rows": "5"}),
         }
-
-    def clean_email(self):
-        email = self.cleaned_data.get("email")
-        validator = EmailValidator(message="Неверный email")
-        validator(email)
-        return email

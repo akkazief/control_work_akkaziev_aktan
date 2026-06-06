@@ -21,9 +21,9 @@
                     <a href="{% url 'update' record.pk %}" class="btn btn-sm btn-outline-warning">
                         <i class="fa-regular fa-pen-to-square"></i>
                     </a>
-                    <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#record-{{ record.pk }}-Modal">
+                    <a href="{% url 'delete' record.pk %}" class="btn btn-sm btn-outline-danger">
                         <i class="fa-regular fa-trash-can"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,5 @@
         <p class="text-muted">Нет записей</p>
     {% endfor %}
 </div>
-    {% for record in records %}
-        {% include 'partial/delete_record_modal.html' with record=record %}
-    {% endfor %}
+
 {% endblock %}

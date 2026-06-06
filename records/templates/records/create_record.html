@@ -5,9 +5,6 @@
         <div class="card-header fs-4 text-center py-3">Создание записи</div>
         <div class="card-body">
             {% include 'partial/record_form.html' %}
-            <form action="" id="record-form" method="POST">
-                {% csrf_token %}
-            </form>
         </div>
         <div class="card-footer text-end py-3">
             <a href="{% url 'main' %}" class="btn btn-sm btn-secondary me-2">Отмена</a>
